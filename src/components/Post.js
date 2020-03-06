@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 class Post extends React.Component {
     constructor(){
@@ -10,11 +11,12 @@ class Post extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        // let id = this.props.match.params.id;
+        axios.get('https://jsonplaceholder.typicode.com/posts/' )
         .then(res=>{
             console.log(res.data)
             this.setState({
-                posts: res.data
+                 posts: res.data 
             })
         })
         .catch(err=> console.log(err))
@@ -23,7 +25,7 @@ class Post extends React.Component {
         const post = this.state.posts.map(post=>{
             return(
                 <div key={post.id} className='card my-4'>
-                    <h3 className='text-secodary text-center'>{post.title}</h3>
+                    <h3 className='text-secodary text-center'><Link to={`post/${post.id}`}>{post.title}</Link></h3>
                     <p className='card-body'>{post.body}</p>
                 </div>
             )
