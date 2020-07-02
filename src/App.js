@@ -4,8 +4,11 @@ import NavBarComponent from './components/NavBar'
 import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 import Post from './components/Post'
 import PostDetail from './components/PostDetail'
+
+
 
 class App extends React.Component {
   render(){
@@ -18,6 +21,7 @@ class App extends React.Component {
           <Route path='/post' component={Post}/>
           <Route path='/post/:id' component={PostDetail}/>
 
+        <Footer/>
       </div>
     )
   }
